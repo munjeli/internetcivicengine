@@ -1,0 +1,32 @@
+/* styles for the Civic Internet Engine */
+html, body{
+	
+}
+
+#splash{
+			width: 100%;
+			height: 100%;
+			background-image:url('images/1024px-VeganRallyEvolve.jpg');
+			background-repeat:no-repeat;
+			background-size:cover;
+			overflow: hidden;
+			font: 1.2em Lucida, Arial, sans-serif;
+			font-weight: 700;
+}
+
+#questionDiv{
+			
+			margin-top: 0px;
+			margin-left: 0px;
+			width: 500px;
+			height: 354px;
+			background:transparent;
+			text-align: center;		
+
+}
+
+#questionText{
+	color: #fff;
+	text-shadow: 4px 4px 6px #000;
+	
+}
