@@ -13,6 +13,7 @@
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Arvo|PT+Sans' rel='stylesheet' type='text/css'>
 	    <script type="text/javascript" src='js-ui/js/jquery-1.9.1.js'></script>
 
 
@@ -20,16 +21,63 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script type='text/javascript'>
+		$(document).ready(function (){
+			$("#survey1").hide();
+						
+		//centering the title image dynamically	
+		centerstone();
+		$(window).resize( function(){
+			centerstone();
+		});	
+			
+		function centerstone(){	
+			var pageheight = $(document).height();
+			var topmargin = (pageheight/2) - 200;
+			$('#headspace').css('height', topmargin + 'px');
+						
+			var pagewidth = $(document).width();
+			var leftmargin = (pagewidth/2) - 400;
+			$('#questionDiv').css('margin-left', leftmargin + 'px');
+		}
+		
+		$(".enterButton").click( function(){
+			$("#enterDiv").hide();
+			$("#survey1").show();
+			
+		});
+		
+		/*surveyButton functions pull the vars for the array*/
+		$("surveyButton").click(function(){
+			
+			
+		});
+					
+		});
+			
+		</script>
 	</head>
 
-	<body id="splash">
+	<body>
+		<div id="headspace"></div>
+		
 		<div id="questionDiv">
+			
+			<div id="enterDiv">
+				<div id="questionText">
+					Ready to change the world?
+				</div>
+				<div class="enterButton">
+					Find out how			
+				</div>
+			</div>	
+			
+			<div id="survey1" class="surveyDiv">
+				<div class="surveyQuestion" id='1'>Are you more interested in social or political issues?</div>
+				<div class="surveyButton" id="social">social</div>
+				<div class="surveyButton" id="political">political</div>
+		    </div>
 
-			<div id="questionText">
-				<h1>Ready to change the world?</h1>
-			</div>
-
-
-		</div>
+		</div>	
 	</body>
 </html>
