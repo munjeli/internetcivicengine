@@ -17,8 +17,12 @@ html, body{
 	padding: 0px;
 				 		
 }
-
 #bgSlideshow > div{
+	z-index:1;
+}
+
+#bgSlideshow > div.active{
+	z-index:3;
 	
 }
 
@@ -26,6 +30,7 @@ html, body{
 	width: 100%;
 	height: auto;
 }
+
 
 #darkDiv{
 		position: absolute;
@@ -115,7 +120,7 @@ html, body{
 	color: #1F5129;
 	letter-spacing: 2px;
 	cursor: pointer; 
-	font-weight: 300;	
+	font-weight: 400;	
 }
 
 .surveyButton:hover{
