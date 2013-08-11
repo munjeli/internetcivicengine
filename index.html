@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="style.css" type="text/css"/>
 		<link href='http://fonts.googleapis.com/css?family=Arvo|PT+Sans' rel='stylesheet' type='text/css'>
 	    <script type="text/javascript" src='js-ui/js/jquery-1.9.1.js'></script>
+	    <script type="text/javascript" src="js-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
 
 
 
@@ -35,6 +36,7 @@
 			var pageheight = $(document).height();
 			var topmargin = (pageheight/2) - 200;
 			$('#headspace').css('height', topmargin + 'px');
+			$("#darkDiv").height(pageheight);
 						
 			var pagewidth = $(document).width();
 			var leftmargin = (pagewidth/2) - 400;
@@ -44,6 +46,8 @@
 		$(".enterButton").click( function(){
 			$("#enterDiv").hide();
 			$("#survey1").show();
+			$("#darkDiv").css("background-image", "none");
+			$("#darkDiv").css("background", "rgba(31, 10, 13, 0.9");
 			
 		});
 		
@@ -52,7 +56,7 @@
 		var userArray = new Array();
 		var questionArray = new Array();
 		
-		$("#buttonDiv").on( "click", ".surveyButton", function(){
+		$(".buttonDiv").on( "click", ".surveyButton", function(){
 						
 			var myChoice = $(this).html();
 			userArray.push(myChoice);
@@ -76,7 +80,7 @@
 				}
 				break;
 				case "2":
-					questionArray = ["Which of these do you find most interesting?","education","domestic violence", "poverty", "transportation", "civil rights","youth", "health"];
+					questionArray = ["Which of these do you find most interesting?","domestic violence", "education", "poverty", "transportation", "civil rights","youth", "health"];
 					$(".surveyQuestion").attr("id", 4);
 				break;
 				case "3":
@@ -84,31 +88,40 @@
 				   $(".surveyQuestion").attr("id", 4); 
 				break;
 				case "4":
-					questionArray = ["Your location:", "Seattle"];					
+					questionArray = ["Enter your location:", "Seattle"];					
 				}	
 				
-				$(".surveyQuestion").html(questionArray[0]);	
+				$(".surveyQuestion").html(questionArray.shift());	
+				
 					if(surveyID == "1" || surveyID == "3"){
-						for(var i = 1; i < questionArray.length; i++){
+						for(var i = 0; i < questionArray.length; i++){
 							var buttonBuild = "<div class='surveyButton'>" + questionArray[i] + "</div>"; 
 							$(".buttonDiv").append(buttonBuild);
 						}
 					}
 					else if(surveyID == "2"){
-						var selectableGrid = "<ol id='selectable'></ol>";					
-						$(".buttonDiv").html(selectableGrid);
+						var sideDivs = "<div class='sideDiv' id = '10' style='display: inline;'></div><div class='sideDiv' id='20'></div>";
+						$(".buttonDiv").html(sideDivs);
 						
-						for(var i = 1; i < questionArray.length; i++){
-							var liBuild = "<li>" + questionArray[i] + "</li>";
-							$("#selectable").append(liBuild);
+						for(var i = 0; i < 4; i++){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray.pop() + "</div>";
+							$("#10").append(buttonBuild);						
 						}
+						while(questionArray.length > 0){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray.pop() + "</div>";
+							$("#20").append(buttonBuild);
+						}
+						
+						
 					}
 					else{
+						var inputLocation = "<input type='text'/><div class='findButton'>Find my change</div>";
+						$(".buttonDiv").html(inputLocation);
 					}	
-				
-					
-			    
+					    
 		});
+		
+		
 					
 		});
 			
@@ -116,6 +129,7 @@
 	</head>
 
 	<body>
+		<div id="darkDiv">
 		<div id="headspace"></div>
 		
 		<div id="questionDiv">
@@ -137,6 +151,8 @@
 				</div>
 		    </div>
 
+		</div>
+		<!--end darkDiv-->
 		</div>	
 	</body>
 </html>

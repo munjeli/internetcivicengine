@@ -1,5 +1,6 @@
 /* styles for the Civic Internet Engine */
 html, body{
+	position: relative;
 	width: 100%;
 	height: 100%;
 	background: #1F0A0D;
@@ -14,21 +15,24 @@ html, body{
 				 		
 }
 
-#gradientDiv{
+#darkDiv{
+		position: absolute;
+		top: 0px;
+		left: 0px; 
 		width: 100%;
-		height:0px; 		
-		background-image: -webkit-radial-gradient(center, #000, transparent);		 
+		height: 600px; 		
+		background-image: -webkit-radial-gradient(center, #969075, transparent);		 
 	
 }
 
-#questionDiv{
-			
+#questionDiv{			
 			margin-top: 0px;
 			margin-left: 0px;
 			width: 800px;
 			height: 400px;
 			background: transparent;
-			text-align: center;		
+			text-align: center;	
+			opacity: 1 !important;	
 
 }
 
@@ -37,10 +41,10 @@ html, body{
 	padding-top: 100px;
 }
 
-.enterButton{
+.enterButton, .findButton{
 	width: 300px;
 	height: 50px;
-	background: #CC0000;
+    background: -webkit-linear-gradient(top, #FF3300, #CC0000);
 	color: #fff;
 	font-weight: 200;
 	font-size: 36px;
@@ -53,7 +57,7 @@ html, body{
 		
 }
 
-.enterButton:hover{
+.enterButton:hover, .findButton:hover{
 	background: #FF3300;
 	color: #830000;  
 	border: 3px inset #CC0000;
@@ -82,25 +86,26 @@ html, body{
 }
 
 .surveyQuestion{
-	margin: 40px;
+	margin: 30px 0 15px 0;
 	font-size: 32px;
-	color: #1F0A0D;		
+	color: #1F0A0D;	
+	font-weight: 400;	
 }
 
 .surveyButton{
-	background: #CCC49F;
+	background: -webkit-linear-gradient(top, #F8F7F3, #CCC49F);
 	border: 3px outset #CCC49F;
 	margin-top: 10px;
-	border-radius: 5px;
-	font-size: 32px;
-	font-weight: bold; 
+	border-radius: 10px;
+	font-size: 32px; 
 	text-transform: uppercase; 
-	padding: 10px; 
+	padding: 7px 10px 7px 10px; 
 	margin-left: auto;
 	margin-right: auto;
 	color: #1F5129;
 	letter-spacing: 2px;
-	cursor: pointer; 	
+	cursor: pointer; 
+	font-weight: 300;	
 }
 
 .surveyButton:hover{
@@ -114,32 +119,29 @@ html, body{
 	display:inline-block;
 }
 
-  #selectable .ui-selecting { background: #1F5129; }
-  #selectable .ui-selected { background: #1F5129; 
-  							color: #fff; 
-  							}
-  #selectable { list-style-type: none; 
-  				margin: 0; 
-  				padding: 0; 
-  				width: 450px; 
-  			  }
-  #selectable li { 	
-  					background: #CCC49F;
-					border: 3px outset #CCC49F;
-					margin-top: 10px;
-					border-radius: 5px;
-					font-size: 32px;
-					font-weight: bold; 
-					text-transform: uppercase; 
-					padding: 10px;
-					color: #1F5129;
-					letter-spacing: 2px;
-					cursor: pointer; 
-					width: 200px;
-					float: left;
-			    }
+.sideDiv{
+	float:left;
+	width: 300px;
+	padding: 0 10px 30px 0;
+	
+}
 
+input[type=text]{
+	border-radius: 10px;
+	border: 3px inset #CCC49F;
+	background: #F8F7F3;
+	box-shadow: 2px 2px 3px inset;
+	width: 300px;
+	font-size: 24px;
+	font-style: italic; 
+	padding: 10px;
+	color: #1F5129;
+}
 
+input:focus{
+	outline: none;
+	text-align: center;
+}
 
 
 
