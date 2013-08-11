@@ -48,9 +48,66 @@
 		});
 		
 		/*surveyButton functions pull the vars for the array*/
-		$("surveyButton").click(function(){
+		
+		var userArray = new Array();
+		var questionArray = new Array();
+		
+		$("#buttonDiv").on( "click", ".surveyButton", function(){
+						
+			var myChoice = $(this).html();
+			userArray.push(myChoice);
 			
+			var surveyID = $(".surveyQuestion").attr("id");
+			$(".surveyQuestion").html("");
+			$(".buttonDiv").html("");
 			
+			alert(userArray);
+				
+				switch(surveyID){
+				case "1":
+				if(myChoice == "social"){
+					questionArray = ["Which do you find more rewarding:</br> helping an individual or helping a group?", "individual", "group"];
+					$(".surveyQuestion").attr("id", 2);
+				}
+				else{
+					questionArray = ["Which of these do you find most interesting?", "voter education", "policy issues", "electoral politics"];
+					
+					$(".surveyQuestion").attr("id", 3);
+				}
+				break;
+				case "2":
+					questionArray = ["Which of these do you find most interesting?","education","domestic violence", "poverty", "transportation", "civil rights","youth", "health"];
+					$(".surveyQuestion").attr("id", 4);
+				break;
+				case "3":
+				    questionArray = ["Which level of government do you most want to affect?", "local", "state","federal" ];
+				   $(".surveyQuestion").attr("id", 4); 
+				break;
+				case "4":
+					questionArray = ["Your location:", "Seattle"];					
+				}	
+				
+				$(".surveyQuestion").html(questionArray[0]);	
+					if(surveyID == "1" || surveyID == "3"){
+						for(var i = 1; i < questionArray.length; i++){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray[i] + "</div>"; 
+							$(".buttonDiv").append(buttonBuild);
+						}
+					}
+					else if(surveyID == "2"){
+						var selectableGrid = "<ol id='selectable'></ol>";					
+						$(".buttonDiv").html(selectableGrid);
+						
+						for(var i = 1; i < questionArray.length; i++){
+							var liBuild = "<li>" + questionArray[i] + "</li>";
+							$("#selectable").append(liBuild);
+						}
+					}
+					else{
+					}	
+				
+					
+			    
 		});
 					
 		});
@@ -73,9 +130,11 @@
 			</div>	
 			
 			<div id="survey1" class="surveyDiv">
-				<div class="surveyQuestion" id='1'>Are you more interested in social or political issues?</div>
-				<div class="surveyButton" id="social">social</div>
-				<div class="surveyButton" id="political">political</div>
+				<div class="surveyQuestion" id="1">Are you more interested in social or political issues?</div>
+				<div class="buttonDiv">
+					<div class="surveyButton" >social</div>
+					<div class="surveyButton" >political</div>
+				</div>
 		    </div>
 
 		</div>	

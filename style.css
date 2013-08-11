@@ -88,26 +88,57 @@ html, body{
 }
 
 .surveyButton{
-	width: 200px;
 	background: #CCC49F;
 	border: 3px outset #CCC49F;
-	margin-top: 14px;
+	margin-top: 10px;
 	border-radius: 5px;
 	font-size: 32px;
 	font-weight: bold; 
 	text-transform: uppercase; 
-	padding: 10px 0 10px 0; 
+	padding: 10px; 
 	margin-left: auto;
 	margin-right: auto;
-	color: #304256;
-	letter-spacing: 2px; 	
+	color: #1F5129;
+	letter-spacing: 2px;
+	cursor: pointer; 	
 }
 
 .surveyButton:hover{
-	background: #304256;
+	background: #1F5129;
 	color: #fff;
 	border: 3px inset #CCC49F;  
 }
+
+.buttonDiv{
+	padding-bottom: 20px;
+	display:inline-block;
+}
+
+  #selectable .ui-selecting { background: #1F5129; }
+  #selectable .ui-selected { background: #1F5129; 
+  							color: #fff; 
+  							}
+  #selectable { list-style-type: none; 
+  				margin: 0; 
+  				padding: 0; 
+  				width: 450px; 
+  			  }
+  #selectable li { 	
+  					background: #CCC49F;
+					border: 3px outset #CCC49F;
+					margin-top: 10px;
+					border-radius: 5px;
+					font-size: 32px;
+					font-weight: bold; 
+					text-transform: uppercase; 
+					padding: 10px;
+					color: #1F5129;
+					letter-spacing: 2px;
+					cursor: pointer; 
+					width: 200px;
+					float: left;
+			    }
+
 
 
 
