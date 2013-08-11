@@ -13,23 +13,172 @@
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Arvo|PT+Sans' rel='stylesheet' type='text/css'>
 	    <script type="text/javascript" src='js-ui/js/jquery-1.9.1.js'></script>
-
-
+	   
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script type='text/javascript'>
+   
+		$(document).ready(function (){
+			$("#survey1").hide();
+						
+		//centering the title image dynamically	
+		centerstone();
+		$(window).resize( function(){
+			centerstone();
+		});	
+			
+		function centerstone(){	
+			var pageheight = $(document).height();
+			var topmargin = (pageheight/2) - 200;
+			$('#headspace').css('height', topmargin + 'px');
+			$("#darkDiv").height(pageheight);
+			$("#bgSlideshow").height(pageheight);
+									
+			var pagewidth = $(document).width();
+			var leftmargin = (pagewidth/2) - 400;
+			$('#questionDiv').css('margin-left', leftmargin + 'px');
+		}
+		
+		/*slideshow background*/
+		$("#bgSlideshow > div:gt(0)").hide();
+
+		setInterval(function() { 
+		  $('#bgSlideshow > div:first')
+		    .fadeOut(3000)
+		    .next()
+		    .fadeIn(3000)
+		    .end()
+		    .appendTo('#bgSlideshow');
+		},  6000);
+		
+
+		$(".enterButton").click( function(){
+			$("#enterDiv").hide();
+			$("#survey1").show();
+			$("#darkDiv").css("background-image", "url('images/darkBox.png')");		
+		});
+		
+		/*surveyButton functions pull the vars for the array*/
+		
+		var userArray = new Array();
+		var questionArray = new Array();
+		
+		$(".buttonDiv").on( "click", ".surveyButton", function(){
+						
+			var myChoice = $(this).html();
+			userArray.push(myChoice);
+			
+			var surveyID = $(".surveyQuestion").attr("id");
+			$(".surveyQuestion").html("");
+			$(".buttonDiv").html("");
+			
+			alert(userArray);
+				
+				switch(surveyID){
+				case "1":
+				if(myChoice == "social"){
+					questionArray = ["Which do you find more rewarding:</br> helping an individual or helping a group?", "individual", "group"];
+					$(".surveyQuestion").attr("id", 2);
+				}
+				else{
+					questionArray = ["Which of these do you find most interesting?", "voter education", "policy issues", "electoral politics"];
+					
+					$(".surveyQuestion").attr("id", 3);
+				}
+				break;
+				case "2":
+					questionArray = ["Which of these do you find most interesting?","domestic violence", "education", "poverty", "transportation", "civil rights","youth", "health"];
+					$(".surveyQuestion").attr("id", 4);
+				break;
+				case "3":
+				    questionArray = ["Which level of government do you most want to affect?", "local", "state","federal" ];
+				   $(".surveyQuestion").attr("id", 4); 
+				break;
+				case "4":
+					questionArray = ["Enter your location:", "Seattle"];					
+				}	
+				
+				$(".surveyQuestion").html(questionArray.shift());	
+				
+					if(surveyID == "1" || surveyID == "3"){
+						for(var i = 0; i < questionArray.length; i++){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray[i] + "</div>"; 
+							$(".buttonDiv").append(buttonBuild);
+						}
+					}
+					else if(surveyID == "2"){
+						var sideDivs = "<div class='sideDiv' id = '10' style='display: inline;'></div><div class='sideDiv' id='20'></div>";
+						$(".buttonDiv").html(sideDivs);
+						
+						for(var i = 0; i < 4; i++){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray.pop() + "</div>";
+							$("#10").append(buttonBuild);						
+						}
+						while(questionArray.length > 0){
+							var buttonBuild = "<div class='surveyButton'>" + questionArray.pop() + "</div>";
+							$("#20").append(buttonBuild);
+						}
+						
+						
+					}
+					else{
+						var inputLocation = "<input type='text'/><div class='findButton'>Find my change</div>";
+						$(".buttonDiv").html(inputLocation);
+					}	
+					    
+		});
+		
+		$(".buttonDiv").on("click", ".findButton", function(){
+			alert("works");
+			userArray.push("seattle");
+			$("#bgSlideshow").html("");
+			$("#bgSlideshow").css("background", "#F8F7F3");
+			$("#darkDiv").css("display", "none");			
+		});	
+					
+		});
+			
+		</script>
 	</head>
 
-	<body id="splash">
+	<body>
+		<div id="bgSlideshow">
+			<div><img src='images/1.jpg'/></div>
+			<div><img src='images/2.jpg'/></div>
+			<div><img src='images/3.jpg'/></div>
+			<div><img src='images/4.jpg'/></div>
+			<div><img src='images/5.jpg'/></div>
+			<div><img src='images/6.jpg'/></div>
+		</div>
+		<div id="darkDiv">
+		<div id="headspace"></div>
+		
 		<div id="questionDiv">
-
-			<div id="questionText">
-				<h1>Ready to change the world?</h1>
-			</div>
-
+			
+			<div id="enterDiv">
+				<div id="questionText">
+					Ready to change the world?
+				</div>
+				<div class="enterButton">
+					Find out how			
+				</div>
+			</div>	
+			
+			<div id="survey1" class="surveyDiv">
+				<div class="surveyQuestion" id="1">Are you more interested in social or political issues?</div>
+				<div class="buttonDiv">
+					<div class="surveyButton" >social</div>
+					<div class="surveyButton" >political</div>
+				</div>
+		    </div>
 
 		</div>
+		<!--end darkDiv-->
+		</div>
+			
 	</body>
 </html>
