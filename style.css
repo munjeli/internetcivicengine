@@ -1,18 +1,30 @@
 /* styles for the Civic Internet Engine */
 html, body{
-	position: relative;
+	font-family: 'PT Sans', Arial, sans-serif;
+	
+}
+
+#bgSlideshow{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100px;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	background: #1F0A0D;
-	background-image:url('images/1024px-VeganRallyEvolve.jpg');
-	background-repeat:no-repeat;
-	background-size:cover;
 	overflow: hidden;
-	font: 1.2em 'PT Sans', Arial, sans-serif;
-	font-weight: 700;
 	margin: 0px;
 	padding: 0px;
 				 		
+}
+
+#bgSlideshow > div{
+	
+}
+
+#bgSlideshow > div > img{
+	width: 100%;
+	height: auto;
 }
 
 #darkDiv{
@@ -21,7 +33,7 @@ html, body{
 		left: 0px; 
 		width: 100%;
 		height: 600px; 		
-		background-image: -webkit-radial-gradient(center, #969075, transparent);		 
+		background-image: -webkit-radial-gradient(center, #1F0A0D, transparent); 
 	
 }
 
@@ -32,12 +44,10 @@ html, body{
 			height: 400px;
 			background: transparent;
 			text-align: center;	
-			opacity: 1 !important;	
-
+			z-index: 2;	
 }
 
 #enterDiv{
-	
 	padding-top: 100px;
 }
 
@@ -65,9 +75,9 @@ html, body{
 
 #questionText{
 	color: #fff;
-	text-shadow: 4px 4px 6px #000;
+	text-shadow: 2px 5px 2px #000;
 	font-size: 48px; 
-	font-weight: 200;
+	font-weight: 300;
 	font-family: "Arvo", serif;
 	
 }

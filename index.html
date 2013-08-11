@@ -37,18 +37,29 @@
 			var topmargin = (pageheight/2) - 200;
 			$('#headspace').css('height', topmargin + 'px');
 			$("#darkDiv").height(pageheight);
-						
+			$("#bgSlideshow").height(pageheight);
+									
 			var pagewidth = $(document).width();
 			var leftmargin = (pagewidth/2) - 400;
 			$('#questionDiv').css('margin-left', leftmargin + 'px');
 		}
 		
+		/*slideshow background*/
+		$("#bgSlideshow > div:gt(0)").hide();
+
+		setInterval(function() { 
+		  $('#bgSlideshow > div:first')
+		    .fadeOut(3000)
+		    .next()
+		    .fadeIn(3000)
+		    .end()
+		    .appendTo('#bgSlideshow');
+		},  6000);
+		
 		$(".enterButton").click( function(){
 			$("#enterDiv").hide();
 			$("#survey1").show();
-			$("#darkDiv").css("background-image", "none");
-			$("#darkDiv").css("background", "rgba(31, 10, 13, 0.9");
-			
+			$("#darkDiv").css("background-image", "url('images/darkBox.png')");		
 		});
 		
 		/*surveyButton functions pull the vars for the array*/
@@ -121,7 +132,13 @@
 					    
 		});
 		
-		
+		$(".buttonDiv").on("click", ".findButton", function(){
+			alert("works");
+			userArray.push("seattle");
+			$("#bgSlideshow").html("");
+			$("#bgSlideshow").css("background", "#F8F7F3");
+			$("#darkDiv").css("display", "none");			
+		});	
 					
 		});
 			
@@ -129,6 +146,12 @@
 	</head>
 
 	<body>
+		<div id="bgSlideshow">
+			<div><img src='images/1.jpg'/></div>
+			<div><img src='images/2.jpg'/></div>
+			<div><img src='images/3.jpg'/></div>
+			<div><img src='images/4.jpg'/></div>
+		</div>
 		<div id="darkDiv">
 		<div id="headspace"></div>
 		
@@ -153,6 +176,7 @@
 
 		</div>
 		<!--end darkDiv-->
-		</div>	
+		</div>
+			
 	</body>
 </html>
