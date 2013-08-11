@@ -76,7 +76,6 @@
 			$(".surveyQuestion").html("");
 			$(".buttonDiv").html("");
 			
-			alert(userArray);
 				
 				switch(surveyID){
 				case "1":
@@ -133,8 +132,9 @@
 		});
 		
 		$(".buttonDiv").on("click", ".findButton", function(){
-			alert("works");
+
 			userArray.push("seattle");
+			window.location= "graph.html";
 			$("#bgSlideshow").html("");
 			$("#bgSlideshow").css("background", "#F8F7F3");
 			$("#darkDiv").css("display", "none");			
