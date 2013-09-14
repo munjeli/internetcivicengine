@@ -1,0 +1,259 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 17, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* styles for the Civic Internet Engine */
+/* line 10, ../sass/screen.scss */
+html, body {
+  font-family: 'PT Sans', Arial, sans-serif;
+}
+
+/* line 15, ../sass/screen.scss */
+#bgSlideshow {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  width: 100%;
+  height: auto;
+  background: #1F0A0D;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 29, ../sass/screen.scss */
+#bgSlideshow > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* line 37, ../sass/screen.scss */
+#bgSlideshow > div > img {
+  width: 100%;
+  height: auto;
+}
+
+/* line 43, ../sass/screen.scss */
+#darkDiv {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 600px;
+  background: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #111111), color-stop(100%, transparent));
+  background: -webkit-radial-gradient(center, #111111, transparent);
+  background: -moz-radial-gradient(center, #111111, transparent);
+  background: -o-radial-gradient(center, #111111, transparent);
+  background: radial-gradient(center, #111111, transparent);
+  z-index: 5;
+}
+
+/* line 54, ../sass/screen.scss */
+#questionDiv {
+  margin-top: 0px;
+  margin-left: 0px;
+  width: 800px;
+  height: 400px;
+  background: transparent;
+  text-align: center;
+  z-index: 5;
+}
+
+/* line 64, ../sass/screen.scss */
+#enterDiv {
+  padding-top: 100px;
+}
+
+/* line 68, ../sass/screen.scss */
+.enterButton, .findButton {
+  width: 300px;
+  height: 50px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff3300), color-stop(100%, #cc0000));
+  background: -webkit-linear-gradient(top, #ff3300, #cc0000);
+  background: -moz-linear-gradient(top, #ff3300, #cc0000);
+  background: -o-linear-gradient(top, #ff3300, #cc0000);
+  background: linear-gradient(top, #ff3300, #cc0000);
+  color: #fff;
+  font-weight: 200;
+  font-size: 36px;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px outset #CC0000;
+  margin: 30px auto 0 auto;
+  padding-top: 5px;
+  cursor: pointer;
+}
+
+/* line 84, ../sass/screen.scss */
+.enterButton:hover, .findButton:hover {
+  background: #FF3300;
+  color: #830000;
+  border: 3px inset #CC0000;
+}
+
+/* line 90, ../sass/screen.scss */
+#questionText {
+  color: #fff;
+  text-shadow: 2px 5px 2px #000;
+  font-size: 48px;
+  font-weight: 300;
+  font-family: "Arvo", serif;
+}
+
+/* line 99, ../sass/screen.scss */
+.surveyDiv {
+  width: 50%;
+  min-width: 800px;
+  height: 400px;
+  background: #304256;
+  background-image: url("http://localhost/src/internetcivicengine/images/paper-bg.jpg");
+  background-size: cover;
+  border: 5px double #969075;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* line 112, ../sass/screen.scss */
+.surveyQuestion {
+  margin: 30px 0 15px 0;
+  font-size: 32px;
+  color: #1F0A0D;
+  font-weight: 400;
+}
+
+/* line 119, ../sass/screen.scss */
+.surveyButton {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f7f3), color-stop(100%, #ccc49f));
+  background: -webkit-linear-gradient(top, #f8f7f3, #ccc49f);
+  background: -moz-linear-gradient(top, #f8f7f3, #ccc49f);
+  background: -o-linear-gradient(top, #f8f7f3, #ccc49f);
+  background: linear-gradient(top, #f8f7f3, #ccc49f);
+  border: 3px outset #CCC49F;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 32px;
+  text-transform: uppercase;
+  padding: 7px 10px 7px 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1F5129;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+/* line 135, ../sass/screen.scss */
+.surveyButton:hover {
+  background: #1F5129;
+  color: #fff;
+  border: 3px inset #CCC49F;
+}
+
+/* line 141, ../sass/screen.scss */
+.buttonDiv {
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+/* line 146, ../sass/screen.scss */
+.sideDiv {
+  float: left;
+  width: 300px;
+  padding: 0 10px 30px 0;
+}
+
+/* line 153, ../sass/screen.scss */
+input[type=text] {
+  border-radius: 10px;
+  border: 3px inset #CCC49F;
+  background: #F8F7F3;
+  -moz-box-shadow: inset 2px 2px 3px;
+  -webkit-box-shadow: inset 2px 2px 3px;
+  box-shadow: inset 2px 2px 3px;
+  width: 300px;
+  font-size: 24px;
+  font-style: italic;
+  padding: 10px;
+  color: #1F5129;
+}
+
+/* line 167, ../sass/screen.scss */
+input:focus {
+  outline: none;
+  text-align: center;
+}
+
+/* line 172, ../sass/screen.scss */
+.activeSlide {
+  z-index: 3;
+}

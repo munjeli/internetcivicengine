@@ -1,0 +1,171 @@
+@mixin myLinearGradient($c1, $c2){ 
+  background: $c2;  
+  background: -webkit-gradient(linear, left top, left bottom, from($c1), to($c2)); /* for webkit browsers */
+  background: -moz-linear-gradient(top,  $c1, $c2);
+
+}
+
+
+
+/* styles for the Civic Internet Engine */
+html, body{
+  font-family: 'PT Sans', Arial, sans-serif;
+  
+}
+
+#bgSlideshow{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100px;
+  width: 100%;
+  height: auto;
+  background: #1F0A0D;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+            
+}
+#bgSlideshow > div{
+  z-index:1;
+}
+
+#bgSlideshow > div.active{
+  z-index:3;
+  
+}
+
+#bgSlideshow > div > img{
+  width: 100%;
+  height: auto;
+}
+
+
+#darkDiv{
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+    width: 100%;
+    height: 600px; 
+    @include background-image(radial-gradient(center, #1F0a0d, transparent));   
+
+  
+}
+
+#questionDiv{     
+      margin-top: 0px;
+      margin-left: 0px;
+      width: 800px;
+      height: 400px;
+      background: transparent;
+      text-align: center; 
+      z-index: 2; 
+}
+
+#enterDiv{
+  padding-top: 100px;
+}
+
+.enterButton, .findButton{
+  width: 300px;
+  height: 50px;
+  @include myLinearGradient(#FF3300, #CC0000);
+  color: #fff;
+  font-weight: 200;
+  font-size: 36px;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px outset #CC0000;
+  margin: 30px auto 0 auto; 
+  padding-top: 5px;
+  cursor: pointer;
+    
+}
+
+.enterButton:hover, .findButton:hover{
+  background: #FF3300;
+  color: #830000;  
+  border: 3px inset #CC0000;
+}
+
+#questionText{
+  color: #fff;
+  text-shadow: 2px 5px 2px #000;
+  font-size: 48px; 
+  font-weight: 300;
+  font-family: "Arvo", serif;
+  
+}
+
+.surveyDiv{
+  width:50%;
+  min-width: 800px;
+  height: 400px;
+  background: #304256;
+  background-image: url("images/paper-bg.jpg");
+  background-size: cover;
+  border: 5px double #969075;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.surveyQuestion{
+  margin: 30px 0 15px 0;
+  font-size: 32px;
+  color: #1F0A0D; 
+  font-weight: 400; 
+}
+
+.surveyButton{
+  @include myLinearGradient(#F8F7F3, #CCC49F);
+  border: 3px outset #CCC49F;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 32px; 
+  text-transform: uppercase; 
+  padding: 7px 10px 7px 10px; 
+  margin-left: auto;
+  margin-right: auto;
+  color: #1F5129;
+  letter-spacing: 2px;
+  cursor: pointer; 
+  font-weight: 400; 
+}
+
+.surveyButton:hover{
+  background: #1F5129;
+  color: #fff;
+  border: 3px inset #CCC49F;  
+}
+
+.buttonDiv{
+  padding-bottom: 20px;
+  display:inline-block;
+}
+
+.sideDiv{
+  float:left;
+  width: 300px;
+  padding: 0 10px 30px 0;
+  
+}
+
+input[type=text]{
+  border-radius: 10px;
+  border: 3px inset #CCC49F;
+  background: #F8F7F3;
+  -moz-box-shadow: inset 2px 2px 3px;
+  -webkit-box-shadow: inset 2px 2px 3px; 
+  box-shadow:  inset 2px 2px 3px;
+  width: 300px;
+  font-size: 24px;
+  font-style: italic; 
+  padding: 10px;
+  color: #1F5129;
+}
+
+input:focus{
+  outline: none;
+  text-align: center;
+}

@@ -11,9 +11,10 @@
 		<meta name="description" content="" />
 		<meta name="author" content="ele munjeli" />
 
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" type="text/css"/>
 		<link href='http://fonts.googleapis.com/css?family=Arvo|PT+Sans' rel='stylesheet' type='text/css'>
+		<link href="ice/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	    <script type="text/javascript" src='js-ui/js/jquery-1.9.1.js'></script>
 	   
 
@@ -43,7 +44,7 @@
 			$('#questionDiv').css('margin-left', leftmargin + 'px');
 		}
 		
-		/*slideshow background*/
+		/*slideshow background
 		$("#bgSlideshow > div:gt(0)").hide();
 
 		setInterval(function() { 
@@ -54,6 +55,34 @@
 		    .end()
 		    .appendTo('#bgSlideshow');
 		},  6000);
+		
+		*/
+		
+		setTimeout(fadeSlide(), 6000);
+		
+		/*the slideshow function*/
+		function fadeSlide(){
+			var activeSlide = $("#bgSlideshow").children(".activeSlide");
+			var nextSlide;  
+			
+				if($(activeSlide).next().length > 0){
+					nextSlide = $(activeSlide).next();
+				}
+				else{
+					nextSlide = $("#bgSlideshow div:first");
+				}
+			
+			$(nextSlide).css("z-index", "2");
+			$(activeSlide).fadeOut(2000, function(){
+				$(activeSlide).show().css("z-index", 1).removeClass("activeSlide");
+				$(nextSlide).css("z-index", 3).addClass("activeSlide");
+											
+			});
+			
+			
+			setTimeout(fadeSlide, 6000);				
+			
+		}
 		
 
 		$(".enterButton").click( function(){
@@ -147,7 +176,7 @@
 
 	<body>
 		<div id="bgSlideshow">
-			<div><img src='images/1.jpg'/></div>
+			<div class = "activeSlide"><img src='images/1.jpg'/></div>
 			<div><img src='images/2.jpg'/></div>
 			<div><img src='images/3.jpg'/></div>
 			<div><img src='images/4.jpg'/></div>
